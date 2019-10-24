@@ -1,7 +1,9 @@
 package com.iceland.springboot;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @date 2019-10-22 2:49 下午
@@ -9,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @IceLandMilkTeaApplication SpringBoot启动类
  */
 @SpringBootApplication
+@EnableSwagger2
+@MapperScan("com.iceland.springboot.dao")
 public class IceLandMilkTeaApplication {
 
     public static void main(String[] args) {
