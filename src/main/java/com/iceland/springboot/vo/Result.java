@@ -28,4 +28,13 @@ public class Result {
         r.setData(null);
         return r;
     }
+
+    public static Result setResult(boolean isSuccess,Object object){
+        if (isSuccess){
+            return setOK(object);
+        }else {
+            return setERROR();
+        }
+
+    }
 }
