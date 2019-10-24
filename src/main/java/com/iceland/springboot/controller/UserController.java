@@ -25,10 +25,4 @@ public class UserController {
         return userService.login(user);
     }
 
-    @ApiOperation(value = "实现注册功能",notes = "实现注册功能")
-    @PostMapping("user/register.do")
-    public Result register(User user){
-
-        return userService.register(user);
-    }
 }

@@ -22,12 +22,4 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
-    public Result register(User user) {
-        if (userMapper.register(user)>0) {
-            return Result.setOK("注册成功");
-        } else {
-            return Result.setERROR();
-        }
-    }
 }

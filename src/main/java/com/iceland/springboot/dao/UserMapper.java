@@ -14,6 +14,4 @@ public interface UserMapper {
             "and p.user_password=#{password} and p.fk_user_id = i.user_id")
     int login(User user);
 
-    @Insert("insert into user_info i,user_password p (i.user_email,p.user_password) values(#{email},#{password})")
-    int register(User user);
 }
