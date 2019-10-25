@@ -18,7 +18,7 @@ public class User {
 
     private String userName;
 
-    private Long userPhoneNumber;
+    private String userPhoneNumber;
 
     private String userEmail;
 
@@ -30,6 +30,7 @@ public class User {
 
     private String userHeadPortrait;
     private String userPassword;
+    private String code;
 
 
 }
