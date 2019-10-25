@@ -54,6 +54,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
                     UsernamePasswordToken token = new UsernamePasswordToken(user.getUserEmail(), user.getUserPassword());
                     subject.getSession().setAttribute("USERNAME", user);
+                    subject.login(token);
                     return true;
 
                 }
@@ -66,6 +67,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
                 UsernamePasswordToken token = new UsernamePasswordToken(user.getUserPhoneNumber(), user.getUserPassword());
                 subject.getSession().setAttribute("USERNAME", user);
+                subject.login(token);
                 return true;
 
             }
@@ -78,6 +80,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
                 UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getUserPassword());
                 subject.getSession().setAttribute("USERNAME", user);
+                subject.login(token);
                 return true;
 
             }
