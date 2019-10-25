@@ -45,5 +45,8 @@ public class UserController {
         return Result.setResult(userService.removeById(id),"删除");
     }
 
-
+  /*  @PutMapping("/user/update")
+    public Result update(User user){
+       return Result.setResult(userService.updateByUserEmail(user));
+    }*/
 }
