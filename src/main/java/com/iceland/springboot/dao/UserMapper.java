@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 
 import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -19,7 +20,19 @@ public interface UserMapper extends BaseMapper<User> {
     @Insert("insert into iceland_milk_tea.user_info ( user_email, user_password) values (#{userEmail},#{userPassword})")
     @ResultType(Boolean.class)
     boolean register( User user);
-    @Insert("insert into iceland_milk_tea.user_info ( user_phone_number, user_password) values (#{userPhoneNumber},#{userPassword})")
-    @ResultType(Boolean.class)
-    boolean registerByPhoneNumber(User user);
+
+    /**
+     * 进入修改用户信息页面，先查询用户信息
+     * 根据id 查询用户信息
+     *
+     * @param id 页面传入的值
+     * @param id
+     * @return
+     */
+    @Select("SELECT us.user_name, us.user_email, us.user_phone_number, us.user_password " +
+            "FROM user_info us " +
+            "WHERE us.user_id = #{id}")
+    User queryUserInfoById(Integer id);
+
+    String modifyUsername(String username);
 }

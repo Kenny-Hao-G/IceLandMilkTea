@@ -90,4 +90,26 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     }
+
+    /**
+     * 进入修改用户信息页面，先查询用户信息
+     * 根据id 查询用户信息
+     *
+     * @param id 页面传入的值
+     * @return
+     */
+    @Override
+    public User queryUserInfo(Integer id) {
+        return userMapper.queryUserInfoById(id);
+    }
+
+    /**
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    public String modifyUsername(String username) {
+        return userMapper.modifyUsername(username);
+    }
 }
