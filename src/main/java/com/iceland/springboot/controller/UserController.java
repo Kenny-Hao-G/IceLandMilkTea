@@ -2,16 +2,14 @@ package com.iceland.springboot.controller;
 
 import com.iceland.springboot.pojo.User;
 import com.iceland.springboot.service.UserService;
+import com.iceland.springboot.vo.ForgetPassword;
 import com.iceland.springboot.vo.Result;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author WWP
@@ -46,9 +44,9 @@ public class UserController {
     }
 
     @PostMapping("/user/forgetPassword")
-    public Result forgetPassword(ForgetPassword forgetPassword){
-        return Result.setResult(userService.forgetPassword(forgetPassword),"忘记密码");
-
+    public Result forgetPassword(ForgetPassword forgetPassword) {
+        return Result.setResult(userService.forgetPassword(forgetPassword), "忘记密码");
+    }
     /**
      * 进入修改用户信息页面，先查询用户信息
      * 根据id 查询用户信息
