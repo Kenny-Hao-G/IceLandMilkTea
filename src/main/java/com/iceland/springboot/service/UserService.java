@@ -20,7 +20,7 @@ public interface UserService extends IService<User> {
      * @param id 页面传入的值
      * @return
      */
-    public User queryUserInfo(Integer id);
+     User queryUserInfo(Integer id);
 
     /**
      * 点击编辑后更改用户名
@@ -28,7 +28,7 @@ public interface UserService extends IService<User> {
      * @param username
      * @return
      */
-    public String modifyUsername(String username);
+     String modifyUsername(String username);
 
     boolean login(User user);
 

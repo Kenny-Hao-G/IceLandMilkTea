@@ -1,13 +1,13 @@
 package com.iceland.springboot.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.iceland.springboot.pojo.User;
 import com.iceland.springboot.service.UserService;
+import com.iceland.springboot.vo.ForgetPassword;
 import com.iceland.springboot.vo.Result;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,26 +16,38 @@ import org.springframework.web.bind.annotation.*;
  * @description: TODO
  * @date 2019/10/24  20:49
  */
-@Api(value = "用户Controller", tags = "用户Controller")
+
 @RestController
+@Api(tags = "用于用户登录，注册，修改等操作")
 public class UserController {
 
     @Autowired
     UserService userService;
 
     @PostMapping("/user/register")
-    public Result register(User user) {
+    @ApiOperation("注册")
+    public Result register(User user){
 
-        return Result.setResult(userService.register(user), "注册");
+        return Result.setResult(userService.register(user),"注册");
     }
+
+    @PostMapping("/user/login")
+    @ApiOperation("登录")
+    public Result login(User user){
+        return Result.setResult(userService.login(user),"登录");
+    }
+
 
 
     @DeleteMapping("/user/delete")
-    public Result delete(int id) {
-        return Result.setResult(userService.removeById(id), "删除");
+    public Result delete(int id){
+        return Result.setResult(userService.removeById(id),"删除");
     }
 
-
+    @PostMapping("/user/forgetPassword")
+    public Result forgetPassword(ForgetPassword forgetPassword) {
+        return Result.setResult(userService.forgetPassword(forgetPassword), "忘记密码");
+    }
     /**
      * 进入修改用户信息页面，先查询用户信息
      * 根据id 查询用户信息

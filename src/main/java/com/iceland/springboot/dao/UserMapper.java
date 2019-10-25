@@ -20,6 +20,7 @@ public interface UserMapper extends BaseMapper<User> {
     @Insert("insert into iceland_milk_tea.user_info ( user_email, user_password) values (#{userEmail},#{userPassword})")
     @ResultType(Boolean.class)
     boolean register( User user);
+
     @Insert("insert into iceland_milk_tea.user_info ( user_phone_number, user_password) values (#{userPhoneNumber},#{userPassword})")
     @ResultType(Boolean.class)
     boolean registerByPhoneNumber(User user);
