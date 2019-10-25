@@ -34,5 +34,6 @@ public interface UserMapper extends BaseMapper<User> {
             "WHERE us.user_id = #{id}")
     User queryUserInfoById(Integer id);
 
+
     String modifyUsername(String username);
 }

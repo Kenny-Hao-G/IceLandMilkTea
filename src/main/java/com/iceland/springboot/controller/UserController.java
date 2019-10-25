@@ -47,6 +47,7 @@ public class UserController {
     @GetMapping("/user/queryUseInfoById")
     public Result queryUserInfo(Integer id) {
         return Result.setOK(userService.queryUserInfo(id));
+
     }
 
 
