@@ -27,7 +27,7 @@ public interface UserMapper extends BaseMapper<User> {
     int updateByEmail(User user);
 
     /**
-     * 进入修改用户信息页面，先查询用户信息
+     *
      * 根据id 查询用户信息
      *
      * @param id 页面传入的值
