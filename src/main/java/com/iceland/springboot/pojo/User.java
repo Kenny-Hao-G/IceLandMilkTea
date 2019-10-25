@@ -30,6 +30,7 @@ public class User {
 
     private String userHeadPortrait;
     private String userPassword;
+    private String code;
 
 
 }

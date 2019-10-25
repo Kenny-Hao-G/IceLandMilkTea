@@ -1,8 +1,8 @@
 package com.iceland.springboot.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.iceland.springboot.pojo.User;
 import com.iceland.springboot.service.UserService;
+import com.iceland.springboot.vo.ForgetPassword;
 import com.iceland.springboot.vo.Result;
 
 import io.swagger.annotations.Api;
@@ -44,6 +44,13 @@ public class UserController {
     public Result delete(int id){
         return Result.setResult(userService.removeById(id),"删除");
     }
+
+    @PostMapping("/user/forgetPassword")
+    public Result forgetPassword(ForgetPassword forgetPassword){
+        return Result.setResult(userService.forgetPassword(forgetPassword),"忘记密码");
+
+    }
+
 
 
 }

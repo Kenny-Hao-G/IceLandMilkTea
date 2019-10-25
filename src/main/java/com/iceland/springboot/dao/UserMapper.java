@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 
 import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -22,4 +23,8 @@ public interface UserMapper extends BaseMapper<User> {
     @Insert("insert into iceland_milk_tea.user_info ( user_phone_number, user_password) values (#{userPhoneNumber},#{userPassword})")
     @ResultType(Boolean.class)
     boolean registerByPhoneNumber(User user);
+
+    @Update("update iceland_milk_tea.user_info set code=#{code} where user_email=#{userEmail}")
+    @ResultType(Integer.class)
+    int updateByEmail(User user);
 }
