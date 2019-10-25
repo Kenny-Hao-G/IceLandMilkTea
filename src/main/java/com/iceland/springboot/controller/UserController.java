@@ -45,5 +45,4 @@ public class UserController {
         return Result.setResult(userService.removeById(id),"删除");
     }
 
-
 }
