@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.iceland.springboot.dao.UserMapper;
 import com.iceland.springboot.pojo.User;
 import com.iceland.springboot.service.UserService;
+import com.iceland.springboot.utils.MailUtils;
 import com.iceland.springboot.utils.Md5Utils;
+import com.iceland.springboot.vo.ForgetPassword;
 import com.iceland.springboot.vo.Result;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -44,7 +46,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public boolean login(User user) {
 
-        if (user.getUserEmail() != null || user.getUserName() != null || user.getUserPhoneNumber() != null){
+        if (user.getUserEmail() != null || user.getUserName() != null || user.getUserPhoneNumber() != null) {
             user.setUserPassword(Md5Utils.getMd5Str(user.getUserPassword()));
             if (user.getUserEmail() != null) {
                 User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_email", user.getUserEmail()));
@@ -58,30 +60,30 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 }
 
             }
-        if (user.getUserPhoneNumber() != null) {
-            User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_phone_number", user.getUserPhoneNumber()));
-            if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
-                Subject subject = SecurityUtils.getSubject();
+            if (user.getUserPhoneNumber() != null) {
+                User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_phone_number", user.getUserPhoneNumber()));
+                if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
+                    Subject subject = SecurityUtils.getSubject();
 
-                UsernamePasswordToken token = new UsernamePasswordToken(user.getUserPhoneNumber(), user.getUserPassword());
-                subject.getSession().setAttribute("USERNAME", user);
-                return true;
+                    UsernamePasswordToken token = new UsernamePasswordToken(user.getUserPhoneNumber(), user.getUserPassword());
+                    subject.getSession().setAttribute("USERNAME", user);
+                    return true;
 
-            }
-
-        }
-        if (user.getUserName() != null) {
-            User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_name", user.getUserName()));
-            if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
-                Subject subject = SecurityUtils.getSubject();
-
-                UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getUserPassword());
-                subject.getSession().setAttribute("USERNAME", user);
-                return true;
+                }
 
             }
+            if (user.getUserName() != null) {
+                User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_name", user.getUserName()));
+                if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
+                    Subject subject = SecurityUtils.getSubject();
 
-        }
+                    UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getUserPassword());
+                    subject.getSession().setAttribute("USERNAME", user);
+                    return true;
+
+                }
+
+            }
         }
         if (user.getUserPhoneNumber() == null && user.getUserName() == null && user.getUserEmail() == null) {
             return false;
@@ -89,5 +91,26 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return false;
 
 
+    }
+
+    @Override
+    public boolean forgetPassword(ForgetPassword forgetPassword) {
+        if (forgetPassword.getUserPhoneNumber() != null) {
+
+        }
+
+        if (forgetPassword.getUserEmail() != null) {
+
+            String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
+            MailUtils.sendMail(forgetPassword.getUserEmail(), "验证码请勿泄露！", code);
+            User user = new User();
+            user.setUserEmail(forgetPassword.getUserEmail());
+            user.setCode(code);
+            int count = getBaseMapper().updateByEmail(user);
+
+            return count > 0 ? true : false;
+
+        }
+        return false;
     }
 }
