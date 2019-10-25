@@ -11,4 +11,6 @@ import com.iceland.springboot.pojo.User;
 public interface UserService extends IService<User> {
 
     boolean register(User user);
+
+    boolean login(User user);
 }

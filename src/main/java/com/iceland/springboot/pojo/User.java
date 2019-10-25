@@ -18,7 +18,7 @@ public class User {
 
     private String userName;
 
-    private Long userPhoneNumber;
+    private String userPhoneNumber;
 
     private String userEmail;
 
