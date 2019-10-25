@@ -5,9 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.iceland.springboot.dao.UserMapper;
 import com.iceland.springboot.pojo.User;
 import com.iceland.springboot.service.UserService;
-import com.iceland.springboot.utils.MailUtils;
 import com.iceland.springboot.utils.Md5Utils;
-import com.iceland.springboot.vo.ForgetPassword;
 import com.iceland.springboot.vo.Result;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -46,7 +44,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public boolean login(User user) {
 
-        if (user.getUserEmail() != null || user.getUserName() != null || user.getUserPhoneNumber() != null) {
+        if (user.getUserEmail() != null || user.getUserName() != null || user.getUserPhoneNumber() != null){
             user.setUserPassword(Md5Utils.getMd5Str(user.getUserPassword()));
             if (user.getUserEmail() != null) {
                 User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_email", user.getUserEmail()));
@@ -60,36 +58,59 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 }
 
             }
-            if (user.getUserPhoneNumber() != null) {
-                User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_phone_number", user.getUserPhoneNumber()));
-                if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
-                    Subject subject = SecurityUtils.getSubject();
+        if (user.getUserPhoneNumber() != null) {
+            User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_phone_number", user.getUserPhoneNumber()));
+            if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
+                Subject subject = SecurityUtils.getSubject();
 
-                    UsernamePasswordToken token = new UsernamePasswordToken(user.getUserPhoneNumber(), user.getUserPassword());
-                    subject.getSession().setAttribute("USERNAME", user);
-                    return true;
-
-                }
+                UsernamePasswordToken token = new UsernamePasswordToken(user.getUserPhoneNumber(), user.getUserPassword());
+                subject.getSession().setAttribute("USERNAME", user);
+                return true;
 
             }
-            if (user.getUserName() != null) {
-                User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_name", user.getUserName()));
-                if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
-                    Subject subject = SecurityUtils.getSubject();
 
-                    UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getUserPassword());
-                    subject.getSession().setAttribute("USERNAME", user);
-                    return true;
+        }
+        if (user.getUserName() != null) {
+            User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("user_name", user.getUserName()));
+            if (Objects.equals(user1.getUserPassword(), user.getUserPassword())) {
+                Subject subject = SecurityUtils.getSubject();
 
-                }
+                UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getUserPassword());
+                subject.getSession().setAttribute("USERNAME", user);
+                return true;
 
             }
+
+        }
         }
         if (user.getUserPhoneNumber() == null && user.getUserName() == null && user.getUserEmail() == null) {
             return false;
         }
         return false;
 
+
+    }
+
+    /**
+     * 进入修改用户信息页面，先查询用户信息
+     * 根据id 查询用户信息
+     *
+     * @param id 页面传入的值
+     * @return
+     */
+    @Override
+    public User queryUserInfo(Integer id) {
+        return userMapper.queryUserInfoById(id);
+    }
+
+    /**
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    public String modifyUsername(String username) {
+        return userMapper.modifyUsername(username);
 
     }
 
