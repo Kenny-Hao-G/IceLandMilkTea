@@ -1,6 +1,7 @@
 package com.iceland.springboot.controller;
 
 import com.iceland.springboot.pojo.HelpCenterMenu;
+import com.iceland.springboot.pojo.HelpCenterProblem;
 import com.iceland.springboot.service.HelpCenterService;
 import com.iceland.springboot.vo.Result;
 import io.swagger.annotations.Api;
@@ -20,6 +21,16 @@ public class HelpCenterController {
     @ApiOperation(value = "获取菜单列表",notes = "获取菜单列表")
     public Result getHelpCenterList() {
         List<HelpCenterMenu> list = helpCenterService.getHelpCenterList();
+        if (list != null) {
+            return Result.setOK(list);
+        }
+        return Result.setERROR();
+    }
+
+    @GetMapping("/getDetailedInformation")
+    @ApiOperation(value = "菜单ID获取详细信息",notes = "菜单ID获取详细信息")
+    public Result getDetailedInformation(int id) {
+        List<HelpCenterProblem> list = helpCenterService.getDetailedInformation(id);
         if (list != null) {
             return Result.setOK(list);
         }

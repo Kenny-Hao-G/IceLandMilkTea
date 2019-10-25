@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.iceland.springboot.dao.HelpCenterMapper;
 import com.iceland.springboot.pojo.HelpCenterMenu;
+import com.iceland.springboot.pojo.HelpCenterProblem;
 import com.iceland.springboot.service.HelpCenterService;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,10 @@ public class HelpCenterServiceImpl extends ServiceImpl<HelpCenterMapper, HelpCen
     @Override
     public List<HelpCenterMenu> getHelpCenterList() {
         return getBaseMapper().selectList(new QueryWrapper<HelpCenterMenu>());
+    }
+
+    @Override
+    public List<HelpCenterProblem> getDetailedInformation(int id) {
+        return getBaseMapper().getDetailedInformation(id);
     }
 }
