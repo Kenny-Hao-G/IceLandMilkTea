@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(value = "获取菜单信息",tags = "获取菜单信息")
+
 @RestController
+@Api(value = "获取菜单信息",tags = "获取菜单信息")
 public class GoodsController {
 
     @Autowired
@@ -39,6 +40,8 @@ public class GoodsController {
         }
 
     }
+
+
 
 
 }
