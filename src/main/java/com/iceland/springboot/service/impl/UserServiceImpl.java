@@ -8,7 +8,6 @@ import com.iceland.springboot.service.UserService;
 import com.iceland.springboot.utils.MailUtils;
 import com.iceland.springboot.utils.Md5Utils;
 import com.iceland.springboot.vo.ForgetPassword;
-import com.iceland.springboot.vo.Result;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
