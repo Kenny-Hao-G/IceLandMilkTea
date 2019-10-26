@@ -19,7 +19,7 @@ public class AboutStarbucksController {
     @Autowired
     AboutStarbucksService aboutStarbucksService;
     @GetMapping("/getAboutStarbucksList")
-    @ApiOperation(value = "关于星巴克",notes = "关于星巴克")
+    @ApiOperation(value = "关于星巴克")
     public Result getAboutStarbucksList() {
         List<AboutStarbucks> list = aboutStarbucksService.getAboutStarbucksList();
         if (list != null) {
