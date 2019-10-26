@@ -18,6 +18,7 @@ public class GoodsController {
 
     @Autowired
     GoodsService goodsService;
+
     @GetMapping("/menu")
     @ApiOperation(value = "获取一级菜单信息",notes = "获取一级菜单信息")
     public Result getMenu() {
