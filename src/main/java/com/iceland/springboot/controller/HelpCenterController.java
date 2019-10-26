@@ -44,7 +44,7 @@ public class HelpCenterController {
     }
 
     @GetMapping("/getStoresInformation")
-    @ApiOperation(value = "获取门店信息",notes = "获取门店信息")
+    @ApiOperation("获取门店信息")
     public Result getStoresInformation(Integer id) {
         return helpCenterService.getStoresInformation(id);
 
