@@ -1,7 +1,6 @@
 package com.iceland.springboot.controller;
 
 import com.iceland.springboot.pojo.Card;
-import com.iceland.springboot.pojo.Consume;
 import com.iceland.springboot.service.CardService;
 import com.iceland.springboot.vo.Result;
 import io.swagger.annotations.Api;

@@ -18,4 +18,7 @@ public class Goods {
     private int level;
     private int parentId;
     private List<Goods> submenu;
+
+    public Goods() {
+    }
 }
