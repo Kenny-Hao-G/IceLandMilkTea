@@ -14,4 +14,8 @@ public interface CardService extends IService<Card> {
 
 
    Result selectConsume(Card card);
+
+
+
+
 }

@@ -7,7 +7,7 @@ import com.iceland.springboot.pojo.Card;
 
 import com.iceland.springboot.pojo.Consume;
 import com.iceland.springboot.service.CardService;
-import com.iceland.springboot.utils.JsonUtils;
+
 import com.iceland.springboot.utils.Md5Utils;
 import com.iceland.springboot.vo.Result;
 import org.apache.shiro.SecurityUtils;
@@ -25,33 +25,61 @@ import java.util.Objects;
 public class CardServiceImpl extends ServiceImpl<CardMapper, Card> implements CardService {
     @Override
     public boolean selectCard(Card card) {
-        if (card.getCardNumber()!=null&&card.getCardPassword()!=null){
+        if (card.getCardNumber() != null && card.getCardPassword() != null) {
             card.setCardPassword(Md5Utils.getMd5Str(card.getCardPassword()));
 
-           Card card1=getBaseMapper().selectOne(new QueryWrapper<Card>().eq("card_number",card.getCardNumber()));
-           if (Objects.equals(card.getCardPassword(),card1.getCardPassword())){
+            Card card1 = getBaseMapper().selectOne(new QueryWrapper<Card>().eq("card_number", card.getCardNumber()));
+            if (Objects.equals(card.getCardPassword(), card1.getCardPassword())) {
 
-               Subject subject= SecurityUtils.getSubject();
-               subject.getSession().setAttribute("CARD",card1);
-               System.out.println(card1);
-               return true;
+                Subject subject = SecurityUtils.getSubject();
+                subject.getSession().setAttribute("CARD", card1);
+                System.out.println(card1);
+                return true;
 
-           }
+            }
 
         }
+        if (card.getCardNumber() != null && card.getSaleNo() != null && card.getCardPassword()==null) {
+
+
+            Card card1 = getBaseMapper().selectOne(new QueryWrapper<Card>().eq("card_number", card.getCardNumber()));
+            if (Objects.equals(card.getSaleNo(),card1.getSaleNo())) {
+                Subject subject = SecurityUtils.getSubject();
+                subject.getSession().setAttribute("CARD", card1);
+
+                System.out.println(card1);
+                return true;
+
+            }
+
+        }
+
+
         return false;
     }
 
     @Override
     public Result selectConsume(Card card) {
-        if (card !=null){
-            Card card1=getBaseMapper().selectOne(new QueryWrapper<Card>().eq("card_number",card.getCardNumber()));
-            if (Objects.equals(card1.getCardPassword(),card.getCardPassword())){
-                Consume consume=getBaseMapper().selectConsume(card.getId());
+        if (card.getCardNumber() != null && card.getCardPassword() != null) {
+            Card card1 = getBaseMapper().selectOne(new QueryWrapper<Card>().eq("card_number", card.getCardNumber()));
+            if (Objects.equals(card1.getCardPassword(), card.getCardPassword())) {
+                Consume consume = getBaseMapper().selectConsume(card.getId());
+                return Result.setOK(consume);
+
+            }
+        }
+        if (card.getCardNumber() != null && card.getSaleNo() != null && card.getCardPassword() == null) {
+            Card card1 = getBaseMapper().selectOne(new QueryWrapper<Card>().eq("card_number", card.getCardNumber()));
+            if (Objects.equals(card.getSaleNo(),card1.getSaleNo())&&Objects.equals(card.getCardPassword(),card1.getCardPassword())) {
+                Consume consume = getBaseMapper().selectConsume(card.getId());
                 return Result.setOK(consume);
 
             }
         }
         return Result.setERROR();
     }
+
+
+
+
 }

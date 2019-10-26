@@ -17,4 +17,5 @@ public class Card {
     private int id;
     private String cardNumber;
     private String cardPassword;
+    private  String saleNo;
 }
