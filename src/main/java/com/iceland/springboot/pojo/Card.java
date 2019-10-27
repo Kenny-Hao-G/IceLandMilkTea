@@ -17,5 +17,11 @@ public class Card {
     private int id;
     private String cardNumber;
     private String cardPassword;
+    private int consumeId;
+
+    private  int uid;
+    private  int cardBalance;
+
     private  String saleNo;
+    private String code;
 }

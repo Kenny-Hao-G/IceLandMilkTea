@@ -3,8 +3,9 @@ package com.iceland.springboot;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
+
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -21,5 +22,7 @@ public class IceLandMilkTeaApplication {
     public static void main(String[] args) {
         SpringApplication.run(IceLandMilkTeaApplication.class, args);
     }
+
+
 
 }
