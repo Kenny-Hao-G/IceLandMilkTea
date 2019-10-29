@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(value = "获取菜单信息",tags = "获取菜单信息")
+
 @RestController
+@Api(value = "获取菜单信息",tags = "获取菜单信息")
 public class GoodsController {
 
     @Autowired
     GoodsService goodsService;
+
     @GetMapping("/menu")
     @ApiOperation(value = "获取一级菜单信息",notes = "获取一级菜单信息")
     public Result getMenu() {
@@ -39,6 +41,8 @@ public class GoodsController {
         }
 
     }
+
+
 
 
 }

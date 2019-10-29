@@ -5,20 +5,19 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.util.List;
+import java.util.Date;
 
+/**
+ * @author WWP
+ * @description: TODO
+ * @date 2019/10/25  20:00
+ */
 @Data
-@TableName("goods")
-public class Goods {
+@TableName("consume")
+public class Consume {
     @TableId(type = IdType.AUTO)
     private int id;
-    private String goodName;
-    private String imgUrl;
-    private String info;
-    private int level;
-    private int parentId;
-    private List<Goods> submenu;
-
-    public Goods() {
-    }
+    private int payMoney;
+    private String goodsName;
+    private Date time;
 }
