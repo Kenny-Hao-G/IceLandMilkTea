@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfig {
     public ApiInfo createAI() {
-        ApiInfo apiInfo = new ApiInfoBuilder().title("").description("").contact(new Contact("", "", "")).build();
+        ApiInfo apiInfo = new ApiInfoBuilder().title("冰岛咖啡屋").description("一个温馨的小空间").contact(new Contact("", "", "")).build();
         return apiInfo;
     }
 
