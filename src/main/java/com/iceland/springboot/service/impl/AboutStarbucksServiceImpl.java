@@ -13,6 +13,7 @@ import java.util.List;
 public class AboutStarbucksServiceImpl extends ServiceImpl<AboutStarbucksMapper,AboutStarbucks> implements AboutStarbucksService {
     @Override
     public List<AboutStarbucks> getAboutStarbucksList() {
+
         return getBaseMapper().selectList(new QueryWrapper<AboutStarbucks>());
     }
 }
