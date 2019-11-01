@@ -1,0 +1,16 @@
+Index: src/main/java/com/iceland/springboot/controller/AboutStarbucksController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/iceland/springboot/controller/AboutStarbucksController.java	(date 1572597350000)
++++ src/main/java/com/iceland/springboot/controller/AboutStarbucksController.java	(date 1572597365171)
+@@ -60,7 +60,7 @@
+         if (list != null) {
+             return Result.setOK(list);
+         }
+-        
++
+         return Result.setERROR();
+     }
+ 
