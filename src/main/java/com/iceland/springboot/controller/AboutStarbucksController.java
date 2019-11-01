@@ -60,6 +60,7 @@ public class AboutStarbucksController {
         if (list != null) {
             return Result.setOK(list);
         }
+        
         return Result.setERROR();
     }
 
