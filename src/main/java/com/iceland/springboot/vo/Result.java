@@ -21,6 +21,8 @@ public class Result {
         r.setData(data);
         return r;
     }
+
+
     public static Result setERROR(){
         Result r=new Result();
         r.setCode(400);

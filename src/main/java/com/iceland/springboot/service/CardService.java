@@ -13,5 +13,11 @@ public interface CardService extends IService<Card> {
     boolean selectCard(Card card);
 
 
-   Result selectConsume(Card card);
+    Result selectConsume(Card card);
+
+
+    boolean updateBill(Card card);
+
+    Result selectBill(Card card);
+
 }

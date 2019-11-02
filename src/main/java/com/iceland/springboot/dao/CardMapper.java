@@ -5,6 +5,7 @@ import com.iceland.springboot.pojo.Card;
 import com.iceland.springboot.pojo.Consume;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * @author WWP
@@ -13,7 +14,15 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface CardMapper extends BaseMapper<Card> {
 
-    @Select("select c.*,cs.card_balance from iceland_milk_tea.consume c inner join iceland_milk_tea.card_select cs on c.id=cs.consume_id where cs.id=#{id}")
+    @Select("select c.*,cs.card_balance from iceland_milk_tea.consume c inner join iceland_milk_tea.card_select cs on c.id=cs.consume_id  where cs.id=#{id}")
     @ResultType(Boolean.class)
     Consume selectConsume(int id);
+    @Update("update iceland_milk_tea.card_select set code=#{code} where sale_no=#{saleNo}")
+    @ResultType(Integer.class)
+    int updateBill(Card card);
+
+
+
+
+
 }

@@ -6,6 +6,7 @@ import com.iceland.springboot.vo.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,9 +33,27 @@ public class CardSelectController {
     @PostMapping("/card/consume")
     @ApiOperation("查询星礼卡的余额，消费记录")
     public Result consume(HttpSession session) {
+
         Card card = (Card) session.getAttribute("CARD");
 
         return cardService.selectConsume(card);
 
     }
+
+
+
+    @PostMapping("/card/updateBill")
+    @ApiOperation("发票申请")
+    public Result updateBill(Card card){
+        return Result.setResult(cardService.updateBill(card),"申请发票");
+    }
+
+   @PostMapping("/card/selectBill")
+   @ApiOperation("发票申请查询")
+    public Result selectBill(Card card){
+        return cardService.selectBill(card);
+   }
+    
+
+
 }
