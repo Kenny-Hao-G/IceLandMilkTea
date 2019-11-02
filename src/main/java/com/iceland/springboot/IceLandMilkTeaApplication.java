@@ -18,6 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class IceLandMilkTeaApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(IceLandMilkTeaApplication.class, args);
     }
 
