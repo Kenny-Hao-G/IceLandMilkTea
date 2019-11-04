@@ -50,7 +50,7 @@ public class UserController {
 
     /**
      * 进入修改用户信息页面，先查询用户信息
-     * 根据id 查询用户信息
+     *
      *
      * @param userId 传入的 id
      * @return
