@@ -71,7 +71,6 @@ public class CardServiceImpl extends ServiceImpl<CardMapper, Card> implements Ca
                 return Result.setOK(consume);
 
             }
-
         }
             if (card.getCardNumber() != null && card.getSaleNo() != null && card.getCardPassword() != null) {
                 Card card1 = getBaseMapper().selectOne(new QueryWrapper<Card>().eq("card_number", card.getCardNumber()));

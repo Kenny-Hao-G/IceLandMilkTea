@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消费记录</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="media/js/jquery-3.3.1.js"></script>
+    <script src="media/js/vue.min.js"></script>
+    <link href="media/css/index.css">
+    <script >
+        var app = new Vue({
+            el: "table",
+            msg:
+                obj
+            });
+
+
+        $.post("card/getSession",function (msg) {
+            var data=msg;
+
+            $.post("card/consume",data, function (msg) {
+                if (msg.code == 200) {
+                    app.obj = msg.data;
+
+                }
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<div style="width: 100%">
+    <div style="width: 30%;float: left;">
+        <div style="display: block;width: 100%;border-right:1px solid black; position: fixed;flex-direction: row"
+             id="helpCenter">
+            <div style="margin-top: 25px;margin-left: 25px;">
+                <img src="media/image/index.jpg" class="img-circle" style="width: 50px;height: 50px;">
+                <span style="margin-left: 30px"><a style="font-size: 20px;color: black;">门店</a></span>
+                <span style="margin-left: 30px"><a style="font-size: 20px;color: black">账户</a></span>
+                <span style="margin-left: 30px"><a style="font-size: 20px;color: black">菜单</a></span>
+                <img src="media/image/caidan.png" style="margin-left:50px;width: 50px;height: 50px"
+                     onclick="switchoverMenu()"/>
+
+            </div>
+        </div>
+        <div style="display: block;width: 30%;border-right:1px solid black;position: fixed" id="menu">
+            <div style="margin-top: 250px;margin-left: 90px;width: 30%">
+                <ul class="list-unstyled" style="color: black;font-weight: bold; width: 100%">
+                    <li style="margin-top: 10px;font-size: 30px" onclick=" xinglika()">星礼卡</li>
+                    <li style="margin-top: 10px" onclick="ka1()">关于星礼卡</li>
+                    <li style="margin-top: 10px" onclick="ka2()">管理星礼卡</li>
+                    <li style="margin-top: 10px">在线生情发票</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 70%;float: right;">
+        <div id="table">
+            <table>
+                <tr>
+                    <th>商品名</th>
+                    <th>金额</th>
+                    <th>交易时间</th>
+                    <th>余额</th>
+                </tr>
+                <tr v-for="o in obj">
+                    <td>{{o.goodsName}}</td>
+                    <td>{{o.payMoney}}</td>
+                    <td>{{o.time}}</td>
+                    <td></td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

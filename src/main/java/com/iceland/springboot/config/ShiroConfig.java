@@ -39,6 +39,7 @@ public class ShiroConfig {
         //设置拦截规则
         Map<String,String> map=new HashMap<>();
         map.put("/*","anon");
+        /*map.put("/static/*","anon");*/
         /*map.put("/*","anon");*/
         map.put("/static/media/**","anon");
         /*map.put("/*","authc");*/

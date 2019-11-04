@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星礼卡</title>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="media/js/jquery-3.3.1.js"></script>
+    <link href="media/css/index.css">
+    <script src="media/js/vue.min.js"></script>
+    <script>
+        function ka1() {
+            $("#div2").css("display", "none");
+            $("#div1").css("display", "block");
+        }
+        function ka6(){
+            $("#div2").css("display", "none");
+            $("#div1").css("display", "none");
+            $("#div-table").css("display", "none");
+            $("#div-ka6_1").css("display", "block");
+
+        }
+
+        function ka2() {
+            $("#div2").css("display", "block");
+            $("#div1").css("display", "none");
+            $("#button1").css("color", "#4A9538");
+            $("#button2").css("color", "#278B8B");
+
+        }
+
+        function ka3() {
+            $("#button2").css("color", "#278B8B");
+            $("#button1").css("color", "#4A9538");
+            $("#div4").css("display", "block");
+            $("#div5").css("display", "none");
+
+        }
+
+        function ka4() {
+            $("#button2").css("color", "#4A9538");
+            $("#button1").css("color", "#278B8B");
+            $("#div4").css("display", "none");
+            $("#div5").css("display", "block");
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+<div style="width: 100%">
+    <div style="width: 30%;float: left;">
+        <div style="display: block;width: 100%;border-right:1px solid black; position: fixed;flex-direction: row"
+             id="helpCenter">
+            <div style="margin-top: 25px;margin-left: 25px;">
+                <img src="media/image/index.jpg" class="img-circle" style="width: 50px;height: 50px;">
+                <span style="margin-left: 30px"><a style="font-size: 20px;color: black;">门店</a></span>
+                <span style="margin-left: 30px"><a style="font-size: 20px;color: black">账户</a></span>
+                <span style="margin-left: 30px"><a style="font-size: 20px;color: black">菜单</a></span>
+                <img src="media/image/caidan.png" style="margin-left:50px;width: 50px;height: 50px"
+                     onclick="switchoverMenu()"/>
+
+            </div>
+        </div>
+        <div style="display: block;width: 30%;border-right:1px solid black;position: fixed" id="menu">
+            <div style="margin-top: 250px;margin-left: 90px;width: 30%">
+                <ul class="list-unstyled" style="color: black;font-weight: bold; width: 100%">
+                    <li style="margin-top: 10px;font-size: 30px" onclick=" xinglika()">星礼卡</li>
+                    <li style="margin-top: 10px" onclick="ka1()">关于星礼卡</li>
+                    <li style="margin-top: 10px" onclick="ka2()">管理星礼卡</li>
+                    <li style="margin-top: 10px" onclick="ka6()">在线生情发票</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="float: right;width: 70%;background-color: #F7F7F7">
+        <div id="div1" style="display: block;width: 100%">
+            <div style="width: 100%;height: 300px"><a href="helpCentrer.html"> <img class="img1"
+                                                                                    src="media/image/top.png"
+                                                                                    style="height: 299px;width: 100%;"/></a>
+            </div>
+            <div style="width: 33.333%;height:400px;float: left"><a
+                    href="https://starbucks.world.tmall.com/p/rd993825.htm?&scene=taobao_shop"><img
+                    src="media/image/left1.png" style="height:399px;width:100%"/></a>
+            </div>
+            <div style="width: 33.333%;height:400px;float: right"><a href="#"><img src="media/image/right1.png"
+                                                                                   style="height:399px;width:100%"/></a>
+            </div>
+            <div style="width: 33.333%;height:400px;float:left;"><a href="#"><img src="media/image/left2.png"
+                                                                                  style="height:399px;width:100%"/></a>
+            </div>
+            <div style="width:100%"><label style="font-size: 30px;margin-left: 300px">星巴克星礼卡系列</label></div>
+            <div style="width:100%"><label style="font-size: 15px;margin-left: 300px;color: #909290;">50元/100元/200元/300元/500元
+                （全国通用）</label>
+            </div>
+            <div style="width: 100% ;display: flex;flex-direction: column">
+                <div style="display: flex;flex-direction: row">
+                    <a href="https://detail.tmall.com/item.htm?spm=a1z10.5-b-s.w4011-14489348263.80.6991ce03pNZHD2&id=553531548399&rn=6652b9c3265bc0ba06640e2a115b55ef&abbucket=1">
+                        <img src="media/image/bottom1.png"
+                             style="width: 260px;height: 280px; margin-left: 100px;margin-top: 20px"/>
+                    </a>
+                    <a href="#">
+                        <img src="media/image/bottom2.PNG"
+                             style="width: 260px;height: 280px;margin-left: 30px;margin-top: 20px"/>
+                    </a>
+                    <a href="#">
+                        <img src="media/image/bottom3.PNG"
+                             style="width: 260px;height: 280px;margin-left: 30px;margin-top: 20px"/>
+                    </a>
+                </div>
+            </div>
+            <div style="display: flex;flex-direction: row">
+                <a href="#">
+                    <img src="media/image/bottom4.PNG"
+                         style="width: 260px;height: 280px; margin-left: 100px;margin-top: 20px"/>
+                </a>
+                <a href="#">
+                    <img src="media/image/bottom5.PNG"
+                         style="width: 260px;height: 280px;margin-left: 30px;margin-top: 20px"/>
+                </a>
+                <a href="#">
+                    <img src="media/image/bottom6.PNG"
+                         style="width: 260px;height: 280px;margin-left: 30px;margin-top: 20px"/>
+                </a>
+            </div>
+            <div style="width: 100%; margin-left: 350px"><a
+                    href="https://starbucks.world.tmall.com/p/rd993825.htm?&scene=taobao_shop"><img
+                    src="media/image/bottom7.PNG" style="width: 250px;height: 80px"/> </a>
+            </div>
+        </div>
+
+
+        <div id="div2" style="display: none;float: right;width: 100%;background-color: #F7F7F7;">
+            <div style="margin-left: 250px;margin-top: 100px">
+                <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 500px;">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" id="button1" onclick="ka3()">使用星礼卡密码查询</button>
+                    </div>
+
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" id="button2" onclick="ka4()">使用销售单号查询</button>
+                    </div>
+                </div>
+            </div>
+            <div id="div4" style="width: 100%;margin: 30px;display: block;background: #FFFFFF;">
+
+                <label style="font-size: 30px;margin-top: 20px;">查询我的星礼卡</label>
+                <hr size="5px" noshade=true/>
+                <label style="font-size: 20px;font-family: 华文楷体;margin-top: 10px;margin-left: 30px">请输入你的星礼卡卡号和密码查询星礼卡余额以及交易记录</label>
+
+                <form id="form">
+                    <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                        <label for="exampleInputPassword1">请在下面输入卡号</label>
+                        <input type="text" name="cardNumber" class="form-control"
+                               placeholder="卡号"/>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                        <label for="exampleInputPassword1">请在下面输入密码</label>
+                        <input type="password" name="cardPassword" class="form-control"
+                               placeholder="密码"/>
+                    </div>
+
+
+                    <button type="button" onclick="button1()" class="btn btn-default" style="margin-left: 100px">查询
+                    </button>
+                </form>
+            </div>
+
+
+            <div id="div5" style="width: 100%;margin: 30px;display: none;background: #FFFFFF;">
+
+                <label style="font-size: 30px;margin-top: 20px;">查询我的星礼卡</label>
+                <hr size="5px" noshade=true/>
+                <label style="font-size: 20px;font-family: 华文楷体;margin-top: 10px;margin-left: 30px">请输入你的星礼卡卡号和销售单号查询星礼卡余额以及交易记录</label>
+
+                <form id="form1">
+                    <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                        <label for="exampleInputPassword1">请在下面输入卡号</label>
+                        <input type="text" name="cardNumber" class="form-control" id="exampleInputPassword2"
+                               placeholder="卡号"/>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                        <label for="exampleInputPassword1">请在下面输入销售单号</label>
+                        <input type="password" name="saleNo" class="form-control"
+                               placeholder="密码"/>
+                    </div>
+
+
+                    <button type="button" onclick="button1()" class="btn btn-default" style="margin-left: 100px">查询
+                    </button>
+                </form>
+            </div>
+
+
+        </div>
+        <div style="margin-top: 50px" id="div-table">
+            <table id="table">
+                <tr>
+                    <th style="width: 80px">商品名</th>
+                    <th style="margin-left: 20px;width: 60px">金额</th>
+                    <th style="margin-left: 20px;width: 150px">交易时间</th>
+                    <th>余额</th>
+                </tr>
+                <tr>
+                    <td>{{obj.goodsName}}</td>
+                    <td>{{obj.payMoney}}</td>
+                    <td>{{obj.time}}</td>
+                    <td>{{obj.cardBalance}}</td>
+                </tr>
+            </table>
+        </div>
+
+
+
+        <div id="div-ka6_1" style="display: none;float: right;width: 100%;background-color: #F7F7F7;">
+
+            <div style="margin-left: 250px;margin-top: 100px">
+                <label style="font-size: 30px;margin-top: 20px;">管理我的发票</label>
+                <hr size="5px" noshade=true/>
+                <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 500px;">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" id="button3" onclick="ka3()">在线申请发票</button>
+                    </div>
+
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" id="button4" onclick="ka4()">发票处理进度查询</button>
+                    </div>
+                </div>
+            </div>
+            <div id="div-ka6_2" style="width: 100%;margin: 30px;display: block;background: #FFFFFF;">
+
+
+                <label style="font-size: 20px;font-family: 华文楷体;margin-top: 10px;margin-left: 30px">请输入你的星礼卡卡号和密码查询星礼卡余额以及交易记录</label>
+
+                <form id="form2">
+                    <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                        <label for="exampleInputPassword1">请在下面输入销售单号</label>
+                        <input type="text" name="saleNo" class="form-control"
+                               placeholder="销售单号"/>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                        <label for="exampleInputPassword1">请在下面输入校验码</label>
+                        <input type="text" name="code" class="form-control"
+                               placeholder="校验码"/>
+                    </div>
+
+
+                    <button type="button" onclick="button2()" class="btn btn-default" style="margin-left: 100px">查询
+                    </button>
+                </form>
+            </div>
+
+
+            <div id="div-ka6_3" style="display: none;float: right;width: 100%;background-color: #F7F7F7;">
+
+                <div style="margin-left: 100px;margin-top: 100px">
+                    <label style="font-size: 30px;margin-top: 20px;">管理我的发票</label>
+                    <hr size="5px" noshade=true/>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 500px;">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default" id="button5" onclick="ka3()">在线申请发票</button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default" id="button6" onclick="ka4()">发票处理进度查询</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="div-ka6_4" style="width: 100%;margin: 30px;display: block;background: #FFFFFF;">
+
+
+                    <label style="font-size: 20px;font-family: 华文楷体;margin-top: 10px;margin-left: 30px">请输入你的星礼卡卡号和密码查询星礼卡余额以及交易记录</label>
+
+                    <form id="form3">
+                        <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                            <label for="exampleInputPassword1">请在下面输入销售单号</label>
+                            <input type="text" name="saleNo" class="form-control"
+                                   placeholder="销售单号"/>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;margin-left: 30px">
+                            <label for="exampleInputPassword1">请在下面输入校验码</label>
+                            <input type="text" name="code" class="form-control" id="exampleInputPassword1"
+                                   placeholder="校验码"/>
+                        </div>
+
+
+                        <button type="button" onclick="button2()" class="btn btn-default" style="margin-left: 100px">查询
+                        </button>
+                    </form>
+                </div>
+
+
+        </div>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#table',
+            data: {obj: {}}
+        });
+
+        function button1() {
+            var data = $("#form").serialize();
+            $.post("card/cardSelect", data, function (msg) {
+                if (msg.code == 200) {
+                    $.post("card/consume", function (msg) {
+                        if (msg.code == 200) {
+                            app.obj = msg.data;
+                        }
+                    })
+                } else {
+                    alert("卡号或密码不正确！！")
+                }
+            });
+
+        }
+        function button2() {
+            var data = $("#form1").serialize();
+            $.post("card/cardSelect", data, function (msg) {
+                if (msg.code == 200) {
+                    $.post("card/consume", function (msg) {
+                        if (msg.code == 200) {
+                            app.obj = msg.data;
+                        }
+                    })
+                } else {
+                    alert("卡号或密码不正确！！")
+                }
+            });
+
+        }
+        function button3() {
+            var data = $("#form3").serialize();
+            $.post("card/updateBill", data, function (msg) {
+                if (msg.code == 200) {
+                   alert("申请成功")
+                } else {
+                    alert("销售单号或密码不正确！！")
+                }
+            });
+
+        }
+    </script>
+</body>
+</html>
