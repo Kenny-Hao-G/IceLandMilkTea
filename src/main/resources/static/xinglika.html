@@ -16,6 +16,7 @@
         function ka1() {
             $("#div2").css("display", "none");
             $("#div-table").css("display", "none");
+            $("#div-table1").css("display", "none");
             $("#div-ka6_1").css("display", "none");
             $("#div1").css("display", "block");
         }
@@ -23,6 +24,7 @@
             $("#div2").css("display", "none");
             $("#div1").css("display", "none");
             $("#div-table").css("display", "none");
+            $("#div-table1").css("display", "none");
             $("#div-ka6_1").css("display", "block");
 
         }
@@ -32,6 +34,8 @@
             $("#div1").css("display", "none");
             $("#button1").css("color", "#4A9538");
             $("#button2").css("color", "#278B8B");
+            $("#div-table1").css("display", "none");
+
 
         }
 
@@ -40,6 +44,8 @@
             $("#button1").css("color", "#4A9538");
             $("#div4").css("display", "block");
             $("#div5").css("display", "none");
+            $("#div-table1").css("display", "none");
+            $("#div-table").css("display", "block");
 
         }
 
@@ -48,6 +54,8 @@
             $("#button1").css("color", "#278B8B");
             $("#div4").css("display", "none");
             $("#div5").css("display", "block");
+            $("#div-table").css("display", "none");
+            $("#div-table1").css("display", "block");
 
 
         }
@@ -73,7 +81,7 @@
         <div style="display: block;width: 30%;border-right:1px solid black;position: fixed" id="menu">
             <div style="margin-top: 250px;margin-left: 90px;width: 30%">
                 <ul class="list-unstyled" style="color: black;font-weight: bold; width: 100%">
-                    <li style="margin-top: 10px;font-size: 30px" onclick=" xinglika()">星礼卡</li>
+                    <li style="margin-top: 10px" onclick="ka()">星礼卡</li>
                     <li style="margin-top: 10px" onclick="ka1()">关于星礼卡</li>
                     <li style="margin-top: 10px" onclick="ka2()">管理星礼卡</li>
                     <li style="margin-top: 10px" onclick="ka6()">在线生情发票</li>
@@ -189,12 +197,12 @@
                     </div>
                     <div class="form-group" style="margin-top: 10px;margin-left: 30px">
                         <label for="exampleInputPassword1">请在下面输入销售单号</label>
-                        <input type="password" name="saleNo" class="form-control"
-                               placeholder="密码"/>
+                        <input type="text" name="saleNo" class="form-control"
+                               placeholder="销售单号"/>
                     </div>
 
 
-                    <button type="button" onclick="button1()" class="btn btn-default" style="margin-left: 100px">查询
+                    <button type="button" onclick="button2()" class="btn btn-default" style="margin-left: 100px">查询
                     </button>
                 </form>
             </div>
@@ -203,6 +211,22 @@
         </div>
         <div style="margin-top: 50px" id="div-table">
             <table id="table">
+                <tr>
+                    <th style="width: 80px">商品名</th>
+                    <th style="margin-left: 20px;width: 60px">金额</th>
+                    <th style="margin-left: 20px;width: 150px">交易时间</th>
+                    <th>余额</th>
+                </tr>
+                <tr>
+                    <td>{{obj.goodsName}}</td>
+                    <td>{{obj.payMoney}}</td>
+                    <td>{{obj.time}}</td>
+                    <td>{{obj.cardBalance}}</td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-top: 50px" id="div-table1"  >
+            <table id="table1">
                 <tr>
                     <th style="width: 80px">商品名</th>
                     <th style="margin-left: 20px;width: 60px">金额</th>
@@ -253,7 +277,7 @@
                     </div>
 
 
-                    <button type="button" onclick="button2()" class="btn btn-default" style="margin-left: 100px">查询
+                    <button type="button" onclick="button3()" class="btn btn-default" style="margin-left: 100px">查询
                     </button>
                 </form>
             </div>
@@ -323,13 +347,17 @@
             });
 
         }
+        var app1= new Vue({
+            el: '#table1',
+            data: {obj: {}}
+        });
         function button2() {
             var data = $("#form1").serialize();
             $.post("card/cardSelect", data, function (msg) {
                 if (msg.code == 200) {
                     $.post("card/consume", function (msg) {
                         if (msg.code == 200) {
-                            app.obj = msg.data;
+                            app1.obj = msg.data;
                         }
                     })
                 } else {
