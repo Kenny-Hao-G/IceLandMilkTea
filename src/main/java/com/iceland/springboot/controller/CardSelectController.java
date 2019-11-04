@@ -5,8 +5,6 @@ import com.iceland.springboot.service.CardService;
 import com.iceland.springboot.vo.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,15 +53,6 @@ public class CardSelectController {
     public Result selectBill(Card card){
         return cardService.selectBill(card);
    }
-
-
-  /* @PostMapping("/card/getSession")
-   public Result getSession(){
-       Subject subject= SecurityUtils.getSubject();
-
-        return (Result) subject.getSession().getAttribute("CARD");
-
-   }*/
     
 
 
