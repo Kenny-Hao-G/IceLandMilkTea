@@ -15,8 +15,6 @@
     <script>
         function ka1() {
             $("#div2").css("display", "none");
-            $("#div-table").css("display", "none");
-            $("#div-ka6_1").css("display", "none");
             $("#div1").css("display", "block");
         }
         function ka6(){
@@ -159,12 +157,12 @@
                 <form id="form">
                     <div class="form-group" style="margin-top: 10px;margin-left: 30px">
                         <label for="exampleInputPassword1">请在下面输入卡号</label>
-                        <input type="text" name="cardNumber" class="form-control"
+                        <input type="text" name="cardNumber" class="form-control" id="exampleInputPassword2"
                                placeholder="卡号"/>
                     </div>
                     <div class="form-group" style="margin-top: 10px;margin-left: 30px">
                         <label for="exampleInputPassword1">请在下面输入密码</label>
-                        <input type="password" name="cardPassword" class="form-control"
+                        <input type="password" name="cardPassword" class="form-control" id="exampleInputPassword1"
                                placeholder="密码"/>
                     </div>
 
@@ -189,12 +187,12 @@
                     </div>
                     <div class="form-group" style="margin-top: 10px;margin-left: 30px">
                         <label for="exampleInputPassword1">请在下面输入销售单号</label>
-                        <input type="password" name="saleNo" class="form-control"
+                        <input type="password" name="saleNo" class="form-control" id="exampleInputPassword1"
                                placeholder="密码"/>
                     </div>
 
 
-                    <button type="button" onclick="button1()" class="btn btn-default" style="margin-left: 100px">查询
+                    <button type="button" onclick="button2()" class="btn btn-default" style="margin-left: 100px">查询
                     </button>
                 </form>
             </div>
@@ -221,10 +219,10 @@
 
 
         <div id="div-ka6_1" style="display: none;float: right;width: 100%;background-color: #F7F7F7;">
-            <label style="font-size: 30px;margin-top: 20px;">管理我的发票</label>
-            <hr size="5px" noshade=true/>
-            <div style="margin-left: 250px;margin-top: 100px">
 
+            <div style="margin-left:100px;margin-top: 100px">
+                <label style="font-size: 30px;margin-top: 20px;">管理我的发票</label>
+                <hr size="5px" noshade=true/>
                 <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 500px;">
                     <div class="btn-group" role="group">
                         <button class="btn btn-default" id="button3" onclick="ka3()">在线申请发票</button>
@@ -243,7 +241,7 @@
                 <form id="form2">
                     <div class="form-group" style="margin-top: 10px;margin-left: 30px">
                         <label for="exampleInputPassword1">请在下面输入销售单号</label>
-                        <input type="text" name="saleNo" class="form-control"
+                        <input type="text" name="saleNo" class="form-control" id="exampleInputPassword2"
                                placeholder="销售单号"/>
                     </div>
                     <div class="form-group" style="margin-top: 10px;margin-left: 30px">
@@ -253,7 +251,7 @@
                     </div>
 
 
-                    <button type="button" onclick="button2()" class="btn btn-default" style="margin-left: 100px">查询
+                    <button type="button" onclick="button3()" class="btn btn-default" style="margin-left: 100px">查询
                     </button>
                 </form>
             </div>
@@ -282,17 +280,17 @@
                     <form id="form3">
                         <div class="form-group" style="margin-top: 10px;margin-left: 30px">
                             <label for="exampleInputPassword1">请在下面输入销售单号</label>
-                            <input type="text" name="saleNo" class="form-control"
+                            <input type="text" name="saleNo" class="form-control" id="exampleInputPassword2"
                                    placeholder="销售单号"/>
                         </div>
                         <div class="form-group" style="margin-top: 10px;margin-left: 30px">
                             <label for="exampleInputPassword1">请在下面输入校验码</label>
-                            <input type="text" name="code" class="form-control"
+                            <input type="text" name="code" class="form-control" id="exampleInputPassword1"
                                    placeholder="校验码"/>
                         </div>
 
 
-                        <button type="button" onclick="button3()" class="btn btn-default" style="margin-left: 100px">添加
+                        <button type="button" onclick="button2()" class="btn btn-default" style="margin-left: 100px">查询
                         </button>
                     </form>
                 </div>
@@ -322,8 +320,7 @@
                 }
             });
 
-        }
-        function button2() {
+        } function button2() {
             var data = $("#form1").serialize();
             $.post("card/cardSelect", data, function (msg) {
                 if (msg.code == 200) {
@@ -333,13 +330,13 @@
                         }
                     })
                 } else {
-                    alert("卡号或密码不正确！！")
+                    alert("卡号或销售单号不正确！！")
                 }
             });
 
         }
         function button3() {
-            var data = $("#form3").serialize();
+            var data = $("#form").serialize();
             $.post("card/updateBill", data, function (msg) {
                 if (msg.code == 200) {
                    alert("申请成功")
