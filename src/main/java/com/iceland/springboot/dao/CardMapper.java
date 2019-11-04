@@ -14,8 +14,8 @@ import org.apache.ibatis.annotations.Update;
  */
 public interface CardMapper extends BaseMapper<Card> {
 
-    @Select("select c.*,cs.card_balance from iceland_milk_tea.consume c inner join iceland_milk_tea.card_select cs on c.id=cs.consume_id  where cs.id=#{id}")
-    @ResultType(Boolean.class)
+    @Select("select c.*,cs.card_balance as cardBalance from iceland_milk_tea.consume c inner join iceland_milk_tea.card_select cs on c.id=cs.consume_id  where cs.id=#{id}")
+    @ResultType(Consume.class)
     Consume selectConsume(int id);
     @Update("update iceland_milk_tea.card_select set code=#{code} where sale_no=#{saleNo}")
     @ResultType(Integer.class)
